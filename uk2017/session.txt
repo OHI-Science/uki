@@ -1,0 +1,65 @@
+R version 3.3.2 (2016-10-31)
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+Running under: macOS Sierra 10.12.4
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] tools     stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] ohicore_0.2        bindrcpp_0.2       yaml_2.1.14        brew_1.0-6        
+ [5] jsonlite_1.5       rgdal_1.2-7        sp_1.2-4           git2r_0.18.0.9000 
+ [9] stringr_1.2.0      dplyr_0.7.1        purrr_0.2.2.2      readr_1.1.1       
+[13] tidyr_0.6.3        tibble_1.3.3       ggplot2_2.2.1.9000 tidyverse_1.1.1   
+[17] ohirepos_0.1.0    
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_0.12.11        cellranger_1.1.0    plyr_1.8.4          bindr_0.1          
+ [5] forcats_0.2.0       digest_0.6.12       lubridate_1.6.0     memoise_1.1.0      
+ [9] nlme_3.1-131        gtable_0.2.0        lattice_0.20-35     pkgconfig_2.0.1    
+[13] rlang_0.1.1         psych_1.7.5         parallel_3.3.2      haven_1.0.0        
+[17] xml2_1.1.1          httr_1.2.1          withr_1.0.2         devtools_1.13.2    
+[21] hms_0.3             grid_3.3.2          glue_1.1.1          R6_2.2.2           
+[25] readxl_1.0.0        foreign_0.8-69      modelr_0.1.0        reshape2_1.4.2     
+[29] magrittr_1.5        scales_0.4.1        rvest_0.3.2         assertthat_0.2.0   
+[33] mnormt_1.5-5        colorspace_1.3-2    stringi_1.1.5       lazyeval_0.2.0.9000
+[37] munsell_0.4.3       broom_0.4.2         zoo_1.8-0          
+
+
+
+Package: ohicore
+Description: A collection of functions for generically calculating the Ocean
+    Health Index scores as well as individual goals and sub-goals.
+Version: 0.2
+Date: 2016-07-28
+Title: Ocean Health Index calculation package
+Author: Ben Best, Melanie Frazier, Julia Stewart Lowndes, Casey O'Hara, Ning Jiang Mendes, Jamie Afflerbach, Steve Hastings, Darren Hardy
+Maintainer: Melanie Frazier <frazier@nceas.ucsb.edu>
+License: MIT
+LazyData: TRUE
+Depends: R (>= 3.1.0)
+Imports: dplyr (>= 0.3), ggplot2 (>= 1.0.0), plyr (>= 1.8.0), reshape2,
+        stringr, git2r, rgdal, sp, methods, tidyr, RColorBrewer,
+        htmlwidgets, plotly
+Suggests: testthat
+Collate: 'CalculateAll.R' 'CalculateGoalIndex.R'
+        'CalculatePressuresAll.R' 'CalculateResilienceAll.R'
+        'CheckLayers.R' 'Conf.R' 'Layers.R' 'PlotFlower.R'
+        'ScoreScaling.R' 'SelectLayersData.R' 'compare_scores_df.R'
+        'gapfill_georegions.R' 'name_to_rgn.R' 'name_2_rgn.R'
+        'collapse_2_rgn.R' 'data.R' 'read_git_csv.R' 'shp_to_geojson.R'
+        'trace_git_csv_value.R' 'mapvalues.R' 'change_plot.R'
+RoxygenNote: 5.0.1
+Built: R 3.3.2; ; 2017-03-01 20:16:28 UTC; unix
+RemoteType: github
+RemoteHost: https://api.github.com
+RemoteRepo: ohicore
+RemoteUsername: ohi-science
+RemoteRef: master
+RemoteSha: c0bf7e1a2f26945f605c077da962e1c9970737a9
+GithubRepo: ohicore
+GithubUsername: ohi-science
+GithubRef: master
+GithubSHA1: c0bf7e1a2f26945f605c077da962e1c9970737a9
