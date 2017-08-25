@@ -256,3 +256,25 @@ $$
 - $w_{i}$ = status weight assigned per threat 
 
 assessed species list and maps: IUCN
+
+## Offshore renewable energy 
+
+Potential power that can be obtained through renewable energies
+
+$$
+x_{ORE}=\frac{\sum_{i=1}^{N} P_{i}}{N}
+$$
+
+-$N$ = number of different types of offshore energy used
+-$P$ = status weight assigned per type of energy
+energies: wind, wave, tidal
+
+
+$$
+P=\frac{P_{t}}{P_{r}}
+$$
+
+$P_{t}$ = total potential power that can be obtained
+$P_{r}$ = minimum potential required power in order for any construction to be sustainable
+
+

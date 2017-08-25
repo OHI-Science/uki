@@ -33,7 +33,7 @@ goal_beta = 0.67       # The relative importance of trend vs. pressure/resilienc
 default_trend = 0
 
 # spatial configuration (used by shiny app and future ohicore mapping functions that use leaflet)
-geojson = '../eez2015/spatial/rgn_offshore_gcs_mapshaper-simplify_x2_eez-only.geojson'
+geojson = '../ore2017/spatial/rgn_offshore_gcs_mapshaper-simplify_x2_eez-only.geojson'
 
 # extra descriptions not covered by goals.description or layers.description, used in ohigui
 index_description = 'The overall Index represents the weighted average of all goal scores.'
