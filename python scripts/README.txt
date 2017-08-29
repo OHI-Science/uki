@@ -48,3 +48,18 @@ According to the state equation from https://www.google.co.uk/url?sa=t&rct=j&q=&
 using SST and Salinity  > fluiddensity.py > fluiddensity.txt
 
 **REMOVED total.txt and compressed as too large for GitHub Desktop application
+
+DATA: TIDAL CURRENTS
+
+Data for tidal velocities taken from http://volkov.oce.orst.edu/tides/tpxo8_atlas.html.
+
+Downloading the transports in the netcdf format (M2, S2, N2, K2, K1, O1, P1, Q1, M4) and the bathymetry in netcdf format. 
+
+Using currents.py in order to calculate the tidal speed ( multiplying each transport by the bathymetry -in the right direction- and turning the vector into a speed).
+
+All data > tidalcurrents.txt.
+
+Adding the column to the corresponding latitudes and longitudes > currents.txt
+
+Taking the average per country with tidal.py > countrytidal.txt 
+ 

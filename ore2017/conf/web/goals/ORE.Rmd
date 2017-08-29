@@ -1,0 +1,12 @@
+### Goal Description
+
+Offshore renewable energy goal tries to show the potential power that can be extracted on the coastal areas given the variables needed in order to calculate it. A score of 100 means it is already an ongoing project or that 
+
+### Model & Data 
+
+
+### Reference points 
+
+
+
+
