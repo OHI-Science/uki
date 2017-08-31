@@ -1,0 +1,6 @@
+*Offshore wind energy*
+
+The temperature differences which occur due to the day and night cycle, the amount of solar irradiance and different structures of the Earth is resulting in pressures differences that will set the air masses in motion.Therefore, solar energy is creating this new energy - wind.  
+Wind energy is a function of four factors: density of the air passing through the rotor(rho), wind speed (v), swept area (A) and power coefficient (cp)
+It is illustrated by: power=1/2 * rho * A * v^3 * cp
+

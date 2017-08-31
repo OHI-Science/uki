@@ -1,12 +1,19 @@
 ### Goal Description
 
-Offshore renewable energy goal tries to show the potential power that can be extracted on the coastal areas given the variables needed in order to calculate it. A score of 100 means it is already an ongoing project or that 
+Offshore renewable energy goal tries to show the potential power that can be extracted on the coastal areas given the variables needed in order to calculate it. A score of 100 means it means that the average taken over the entire country can provide 1MW offshore energy, therefore can provide enough to power approximately 1000 houses. Higher scores would imply a higher potential, thus future research should be taken in consideration in order to exploit these resources. 
 
 ### Model & Data 
 
+Model measures the potential amount of power that can be extracted from the three types of energy: wind, wave and tidal. For wind energy, the variables used in order to calculate are: the density of the air passing through the rotor, wind speed, swept area and power coefficient (theoretical limit of power conversion - 0.59). For wave power, the factors that are taken in consideration are wind speed, time water exposure to the wid, open water fetch, water depth and topography of the sea bed. In this case, out of these, it is relatively simpler to calculate the potential amount of energy with the significant wave height and wave period. For tidal power, fluid density, the swept area and the local fluid velocity are the ones which contribute to the calculations. (International Energy Agency Implementing Agreement on Renewable Energy Technology Development, 2012)
+
+Data sources:
+- sea surface temperature, wind speed, wave height and wave period: SAIL.MSK.RU
+- density of the air : GPS visualizer and GRC.NASA
+- salinity : NODC.NOAA
+- tidal currents: VOLKOV ATLAS
 
 ### Reference points 
 
-
+The reference point is the amount of power needed in order to provide energy for 1000 houses which is approximately 1 MW among all assessed regions. The number has been given under the assumption that there are at least 1000 houses that can be provided with this amount of energy - a few countries might have less than this number of houses. 
 
 

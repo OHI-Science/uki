@@ -271,10 +271,9 @@ energies: wind, wave, tidal
 
 
 $$
-P=\frac{P_{t}}{P_{r}}
+P=\frac{P_{t} * 100}{P_{r}}
 $$
 
 $P_{t}$ = total potential power that can be obtained
-$P_{r}$ = minimum potential required power in order for any construction to be sustainable
-
+$P_{r}$ = 1000000 W / approximate power needed to power 1000 houses - sustainable secure point 
 

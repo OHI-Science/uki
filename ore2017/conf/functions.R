@@ -1,5 +1,5 @@
 Setup = function(){
-  if(file.exists('eez2013/temp/referencePoints.csv')){file.remove('temp/referencePoints.csv')}
+  if(file.exists('ore2017/temp/referencePoints.csv')){file.remove('temp/referencePoints.csv')}
   referencePoints <- data.frame(goal=as.character(), 
                                 method = as.character(), 
                                 reference_point = as.character())
@@ -1666,6 +1666,60 @@ BD = function(scores){
   return(rbind(scores, d[,c('region_id','goal','dimension','score')]))
 }
 
+ORE=function(scores){
+  
+  #read in the data (wind power, wave power and tidal power)
+  ore_wind=SelectLayersData(layers,layers='ore_wind_power') %>%
+    dplyr::select(rgn_id_OHI=id_num, wind_power=wind_pwr)
+  
+  ore_wave=SelectLayersData(layers,layers='ore_wave_power') %>%
+    dplyr::select(rgn_id_OHI=id_num, wave_power=wave_pwr)
+  
+  ore_tidal=SelectLayersData(layers,layers='ore_tidal_power') %>%
+    dplyr::select(rgn_id_OHI=id_num, power=tidal_pwr)
+  
+  ore_trend=SelectLayersData(layers,layers='ore_trend') %>%
+    dplyr::select(rgn_id=id_num, score=trend)
+  
+  
+  lapply(wind_pwr, function(x) x/10000) 
+  
+  lapply(wave_pwr, function(x) x/10000) 
+  
+  lapply(tidal_pwr, function(x) x/10000) 
+  
+  ## calculate scores 
+  status <- d %>%
+    group_by(rgn_id) %>%
+    summarize(      
+      score = (wind_pwr+wave_pwr+tidal_pwr)/3,
+      dimension = 'status') %>%
+    ungroup()
+  
+  trend <- d %>%
+    group_by(rgn_id) %>%
+    filter(!is.na(trend)) %>%      
+    summarize(      
+      score =  sum(trend) / sum(w),
+      dimension = 'trend')  %>%
+    ungroup()
+  
+  scores <- rbind(status, trend) %>%
+    mutate(goal = "ORE") %>%
+    select(region_id=rgn_id, goal, dimension, score)
+  
+  ## reference points
+  rp <- read.csv('temp/referencePoints.csv', stringsAsFactors=FALSE) %>%
+    rbind(data.frame(goal = "ORE", method = "Amount of energy enough to power 1000 houses", 
+                     reference_point =1000000 ))
+  write.csv(rp, 'temp/referencePoints.csv', row.names=FALSE)
+  
+  
+  # return scores
+  return(scores)  
+  
+}
+
 PreGlobalScores = function(layers, conf, scores){
   
   # get regions
@@ -1704,3 +1758,4 @@ FinalizeScores = function(layers, conf, scores){
   
   return(scores)
 }
+
