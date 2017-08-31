@@ -4,3 +4,4 @@ The temperature differences which occur due to the day and night cycle, the amou
 Wind energy is a function of four factors: density of the air passing through the rotor(rho), wind speed (v), swept area (A) and power coefficient (cp)
 It is illustrated by: power=1/2 * rho * A * v^3 * cp
 
+(International Eneregy Agency Implementing Agreement on Renewable Energy Technology Development,2012)

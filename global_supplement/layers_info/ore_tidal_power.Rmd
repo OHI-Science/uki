@@ -1,0 +1,7 @@
+*Offshore tidal energy* 
+
+Tidal energy is generated due to changes in the gravitational forces that induce cyclic variations of the sea level, resulting in water currents. 
+The potential power is a influenced by the fluid density (rho), swept area (A) and the local fluid velocity (U) according to the formula:
+P=1/2 * rho * A * U^3
+
+(International Energy Agency Implementing Agreement on Renewable Energy Technology Development, 2012)
