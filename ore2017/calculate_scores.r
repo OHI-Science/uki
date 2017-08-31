@@ -12,7 +12,7 @@
 ## in functions.R is a good workflow.
 
 ## run the configure_toolbox.r script to check configuration
-wd <- 'region2016'
+#wd <- 'region2016'
 source(file.path(wd,'configure_toolbox.r'))
 
 ## calculate scenario scores

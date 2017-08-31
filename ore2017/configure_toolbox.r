@@ -14,7 +14,8 @@
 pkgs_required <- c('ohicore', 'tidyverse', 'stringr', 'zoo')
 pkgs_check <- pkgs_required[!pkgs_required %in% (.packages())]
 pkgs_installed <- sapply(pkgs_check, FUN = function(x) library(x, character.only = TRUE))
-
+setwd(file.path("C:", "Users", "Radu Roxana", "Documents", "GitHub", "uki","ore2017"))
+getwd()
 ## load scenario configuration
 conf = ohicore::Conf(file.path(wd, 'conf'))
 
