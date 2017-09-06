@@ -15,7 +15,7 @@ pkgs_required <- c('ohicore', 'tidyverse', 'stringr', 'zoo')
 pkgs_check <- pkgs_required[!pkgs_required %in% (.packages())]
 pkgs_installed <- sapply(pkgs_check, FUN = function(x) library(x, character.only = TRUE))
 
-setwd("ore2017")
+
 library(stringr)
 
 ## load scenario configuration

@@ -6,42 +6,6 @@ Setup = function(){
   write.csv(referencePoints, 'temp/referencePoints.csv', row.names=FALSE)
 }
 
-# function to link data and scenario years based on 
-# conf/scenario_data_years.csv information
-get_data_year <- function(layer_nm, layers=layers) { #layer_nm="le_wage_cur_base_value"
-  
-  all_years <- conf$scenario_data_years %>%
-    mutate(scenario_year= as.numeric(scenario_year),
-           data_year = as.numeric(data_year)) %>%
-    filter(layer_name %in% layer_nm) %>%
-    select(layer_name, scenario_year, year=data_year)
-  
-  
-  layer_vals <- layers$data[[layer_nm]]
-  
-  layers_years <- all_years %>%
-    left_join(layer_vals, by="year") %>%
-    select(-layer)
-  
-  names(layers_years)[which(names(layers_years)=="year")] <- paste0(layer_nm, "_year")  
-  
-  return(layers_years)
-}
-
-
-# useful function for compiling multiple data layers 
-# only works when the variable names are the same across datasets
-# (e.g., coral, seagrass, and mangroves)
-SelectData2 <- function(layer_names){  
-  data <- data.frame()
-  for(e in layer_names){ # e="le_jobs_cur_base_value"
-    data_new <- get_data_year(layer_nm=e, layers=layers) 
-    names(data_new)[which(names(data_new) == paste0(e, "_year"))] <- "data_year"
-    data <- rbind(data, data_new)
-  }
-  return(data)
-}
-
 FIS = function(layers, status_year){
 
   #catch data
