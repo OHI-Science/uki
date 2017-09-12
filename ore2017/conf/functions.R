@@ -198,8 +198,8 @@ MAR = function(layers, status_year){
     left_join(sustainability_score, by = c('rgn_id', 'species_code')) 
   
   # fill in gaps with no data
-  rky <- spread(rky, year, tonnes)
-  rky <- gather(rky, "year", "tonnes", -c(1:3))
+  #rky <- spread(rky, year, tonnes)
+  #rky <- gather(rky, "year", "tonnes", -c(1:3))
   
   
   # 4-year rolling mean of data
@@ -1751,8 +1751,7 @@ HAB = function(layers){
   if(sum(d$w %in% 1 & is.na(d$health)) > 0){
     warning("Some regions/habitats have extent data, but no health data.  Consider estimating these values.")
   }  
-  
-  
+
   ## calculate scores 
   status <- d %>%
     group_by(rgn_id) %>%
@@ -1828,31 +1827,45 @@ ORE=function(scores){
   
   ore_trend=SelectLayersData(layers,layers='ore_trend') %>%
     dplyr::select(rgn_id=id_num, score=val_num)
+
+  #applying reference point
+
+  wind_pwr<-lapply(ore_wind[,2], function(x) x/10000) 
+  wind_pwr<-as.numeric(unlist(wind_pwr))
   
+  wave_pwr<-lapply(ore_wave[,2], function(x) x/10000) 
+  wave_pwr<-as.numeric(unlist(wave_pwr))
+
+  tidal_pwr<-lapply(ore_tidal[,2], function(x) x/10000) 
+  tidal_pwr<-as.numeric(unlist(tidal_pwr))
+
   
-  lapply(wind_pwr, function(x) x/10000) 
+  score=c()
+  score<-wind_pwr+wave_pwr+tidal_pwr
+  score<-score/3
   
-  lapply(wave_pwr, function(x) x/10000) 
+  tr<-ore_trend[,2]
+  tr<-as.numeric(unlist(tr))
+
+  rgn_id<-ore_wave[,1]
+  rgn_id<-as.numeric(unlist(rgn_id))
+
   
-  lapply(tidal_pwr, function(x) x/10000) 
+  sts<-data.frame(rgn_id,score)
+  s<-sts %>%
+    group_by(rgn_id, score) %>%
+    summarise(
+      dimension='status'
+    )
   
-  ## calculate scores 
-  status <- d %>%
-    group_by(rgn_id) %>%
-    summarize(      
-      score = (wind_pwr+wave_pwr+tidal_pwr)/3,
-      dimension = 'status') %>%
-    ungroup()
+  trd<-data.frame(rgn_id,tr)
+  t<-trd %>%
+    group_by(rgn_id,tr) %>%
+    summarise(
+      dimension='trend'
+    )
   
-  trend <- d %>%
-    group_by(rgn_id) %>%
-    filter(!is.na(trend)) %>%      
-    summarize(      
-      score =  sum(trend) / sum(w),
-      dimension = 'trend')  %>%
-    ungroup()
-  
-  scores <- rbind(status, trend) %>%
+  scores <- rbind(s, t) %>%
     mutate(goal = "ORE") %>%
     select(region_id=rgn_id, goal, dimension, score)
   

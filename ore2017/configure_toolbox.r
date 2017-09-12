@@ -17,7 +17,7 @@ pkgs_installed <- sapply(pkgs_check, FUN = function(x) library(x, character.only
 
 
 library(stringr)
-
+setwd('ore2017')
 ## load scenario configuration
 conf = ohicore::Conf('conf')
 
