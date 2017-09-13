@@ -1813,7 +1813,7 @@ BD = function(scores){
   return(rbind(scores, d[,c('region_id','goal','dimension','score')]))
 }
 
-ORE=function(scores){
+ORE=function(layers){
   
   #read in the data (wind power, wave power and tidal power)
   ore_wind=SelectLayersData(layers, layers='ore_wind_power') %>%
