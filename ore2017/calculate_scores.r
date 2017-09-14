@@ -23,3 +23,48 @@ scores = ohicore::CalculateAll(conf, layers)
 write.csv(scores, 'scores.csv', na='', row.names=F)
 
 
+## visualize scores ----
+
+## source from here until added to ohicore
+source('https://raw.githubusercontent.com/OHI-Science/ohibc/master/src/R/common.R')
+source('plot_flower_local.R')
+
+library(tidyverse)
+
+## regions info
+regions <- bind_rows(
+  data_frame(                # order regions to start with whole study_area
+    region_id   = 0,
+    region_name = 'Global'),
+  read_csv('spatial/regions_list.csv') %>%
+    select(region_id   = rgn_id,
+           region_name = rgn_name))
+
+## set figure name
+regions <- regions %>%
+  mutate(flower_png = sprintf('reports/figures/flower_%s.png',
+                              str_replace_all(region_name, ' ', '_')))
+readr::write_csv(regions, 'reports/figures/regions_figs.csv')
+
+## save flower plot for each region
+for (i in regions$region_id) { # i = 0
+  
+  ## fig_name to save
+  fig_name <- regions$flower_png[regions$region_id == i]
+  
+  ## scores info
+  score_df <- scores %>%
+    filter(dimension == 'score') %>%
+    filter(region_id == i)
+  
+  ## Casey's modified flower plot
+  plot_obj <- plot_flower(score_df,
+                          filename    = fig_name,
+                          goals_csv   = 'conf/goals.csv',
+                          incl_legend = TRUE)
+  
+}
+
+
+
+
