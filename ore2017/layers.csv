@@ -104,4 +104,4 @@
 "ORE","ore_wind_power","Offshore wind energy","","wind_power","W","ore_wind_power.csv","rgn_id",,,,"wind_power",,TRUE,,,0,3206898.533,FALSE,,,,250,FALSE
 "ORE","ore_wave_power","Offshore wave energy","","wave_power","W/m","ore_wave_power.csv","rgn_id",,,,"wave_power",,TRUE,,,0,23.82656023,FALSE,,,,250,FALSE
 "ORE","ore_tidal_power","Offshore tidal energy","","power","W","ore_tidal_power.csv","rgn_id",,,,"power",,TRUE,,,0,186.81,FALSE,,,,250,FALSE
-"ORE","ore_trend","Offshore trend","","score","trend","ore_trend.csv","rgn_id",,,,"score",,TRUE,,,0.6752,0.6752,TRUE,,,,250,FALSE
+"ORE","ore_trend","Offshore trend","","score","trend","ore_trend.csv","rgn_id",,,,"score",,TRUE,,,67.52,67.52,FALSE,,,,250,FALSE

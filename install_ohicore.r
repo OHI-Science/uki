@@ -21,6 +21,7 @@ for (p in c('devtools', 'git2r')){
   }
 }
 
+
 ## install most current version of ohicore from github. Warnings are fine, but make sure there are no errors.
 devtools::install_github('ohi-science/ohicore@dev')
 

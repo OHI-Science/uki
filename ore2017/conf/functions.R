@@ -1843,6 +1843,10 @@ ORE=function(layers){
   score=c()
   score<-wind_pwr+wave_pwr+tidal_pwr
   score<-score/3
+
+  for (i in 1:length(score)) {
+    if (score[i]>100) score[i]=100
+  }
   
   tr<-ore_trend[,2]
   tr<-as.numeric(unlist(tr))
@@ -1857,14 +1861,14 @@ ORE=function(layers){
     summarise(
       dimension='status'
     )
-  
+  print(max(score))
   trd<-data.frame(rgn_id,tr)
   t<-trd %>%
     group_by(rgn_id,tr) %>%
     summarise(
       dimension='trend'
     )
-  
+  print (max(tr))
   scores <- rbind(s, t) %>%
     mutate(goal = "ORE") %>%
     select(region_id=rgn_id, goal, dimension, score)
